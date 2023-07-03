@@ -30,3 +30,18 @@ fetch('https://catfact.ninja/fact')
     .catch(error => {
         console.error('Ocorreu um erro:', error);
     });
+
+    fetch('https://dog.ceo/api/breeds/image/random')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        document.querySelector('.sales-graph').src = data.message
+        console.log(data.message);
+    })
+    .catch(error => {
+        console.error('Ocorreu um erro:', error);
+    });
